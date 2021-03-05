@@ -6,25 +6,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.*;
-import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JDesktopPane;
-import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
-import javax.swing.JInternalFrame.JDesktopIcon;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
-import javax.swing.JToolBar;
-import javax.swing.KeyStroke;
-import javax.swing.SwingUtilities;
 
 class Ventana extends JFrame{
 	
@@ -39,13 +20,12 @@ class Ventana extends JFrame{
 		
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(1080,630);
+		setSize(1095,680);
 		setLocationRelativeTo(null);
 		setTitle("InternalFrames");
 		setVisible(true);
 		
 		menuBar = new JMenuBar();
-
 			masters = new JMenu("Master");
 				menuItemReg= new JMenuItem("Record");
 				masters.add(menuItemReg);
@@ -64,7 +44,6 @@ class Ventana extends JFrame{
 			settings = new JMenu("Settings");
 			window = new JMenu("Window");
 			help = new JMenu("Help");
-			
 		menuBar.add(masters);
 		menuBar.add(booking);
 		menuBar.add(testPerform);
@@ -75,23 +54,48 @@ class Ventana extends JFrame{
 		menuBar.add(help);
 		setJMenuBar(menuBar);
 		
-		JDesktopPane dp = new JDesktopPane();
 		
+		JDesktopPane dp = new JDesktopPane();
 		record = new JInternalFrame();
 		record.getContentPane().setLayout(null);
 		record.setDefaultCloseOperation(HIDE_ON_CLOSE);
-		record.setSize(1080, 630);
+		record.setSize(1080, 616);
 		record.setTitle("Record");
 		
 	
 		tools = new JToolBar(JToolBar.HORIZONTAL);
 		tools.setBounds(0,0,1080,64);
 		
+		JButton add = new JButton(new ImageIcon("Icons/Add.png"));
+		JButton edit = new JButton(new ImageIcon("Icons/Edit.png"));
+		JButton back = new JButton(new ImageIcon("Icons/Back.png"));
+		JButton list = new JButton(new ImageIcon("Icons/List.png"));
+		JButton print = new JButton(new ImageIcon("Icons/Print.png"));
+		JButton test = new JButton(new ImageIcon("Icons/Test.png"));
+		JButton cancel = new JButton(new ImageIcon("Icons/Cancel.png"));
+		JButton settings = new JButton(new ImageIcon("Icons/Settings.png"));
+		JButton delete = new JButton(new ImageIcon("Icons/Delete.png"));
+		JButton slip = new JButton(new ImageIcon("Icons/Slip.png"));
+		JButton exit = new JButton(new ImageIcon("Icons/Exit.png"));
 		
+		tools.add(add);
+		tools.add(edit);
+		tools.add(back);
+		tools.add(list);
+		tools.add(print);
+		tools.add(test);
+		tools.add(cancel);
+		tools.add(settings);
+		tools.add(delete);
+		tools.add(slip);
+		tools.add(exit);
 		record.add(tools);
-		dp.add(record);
-		dp.setBounds(0, 0, 1080, 630);
 		
+		JPanel panel1 = new JPanel();
+		panel1.setBackground(Color.WHITE);
+		
+		dp.add(record);
+		dp.setBounds(0, 0, 1080, 616);
 		add(dp);
 		
 	}
