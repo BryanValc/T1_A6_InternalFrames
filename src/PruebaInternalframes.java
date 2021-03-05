@@ -5,6 +5,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.*;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,8 +19,10 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
@@ -29,6 +32,8 @@ class Ventana extends JFrame{
 	JMenu masters,booking,testPerform,printing,transaction,labReports,settings,utilities,window,help;
 	JMenuItem menuItemReg;
 	JInternalFrame record;
+	
+	JToolBar tools;
 	
 	public Ventana() {
 		
@@ -78,13 +83,24 @@ class Ventana extends JFrame{
 		record.setSize(1080, 630);
 		record.setTitle("Record");
 		
+	
+		tools = new JToolBar(JToolBar.HORIZONTAL);
+		tools.setBounds(0,0,1080,64);
 		
+		
+		record.add(tools);
 		dp.add(record);
 		dp.setBounds(0, 0, 1080, 630);
 		
 		add(dp);
 		
 	}
+	
+	public void metodoMagico(Component c,JPanel p,int x, int y,int width, int height) {
+		c.setBounds(x, y, width, height);
+		p.add(c);
+	}
+	
 	
 }
 
