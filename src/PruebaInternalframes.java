@@ -14,6 +14,8 @@ class Ventana extends JFrame{
 	JMenuItem menuItemReg;
 	JInternalFrame record;
 	
+	JButton calc1,calc2,calc3;
+	
 	JToolBar tools;
 	
 	public Ventana() {
@@ -62,7 +64,7 @@ class Ventana extends JFrame{
 		record.setSize(1080, 616);
 		record.setTitle("Record");
 		
-	
+		//ToolBar inicio
 		tools = new JToolBar(JToolBar.HORIZONTAL);
 		tools.setBounds(0,0,1080,64);
 		
@@ -90,19 +92,50 @@ class Ventana extends JFrame{
 		tools.add(slip);
 		tools.add(exit);
 		record.add(tools);
+		//ToolBar fin
 		
 		JPanel panel1 = new JPanel();
+		panel1.setLayout(null);
 		panel1.setBackground(Color.WHITE);
+		panel1.setBounds(1, 64, 1080, 162);
+		
+		
+		this.metodoMagico(new JLabel("Patient ID"),panel1,15,5,62,15);
+		this.metodoMagico(new JLabel("Name"),panel1,15,32,62,15);
+		this.metodoMagico(new JLabel("Sex"),panel1,15,59,62,15);
+		this.metodoMagico(new JLabel("Referred by"),panel1,15,86,70,15);
+		this.metodoMagico(new JLabel("Date"),panel1,199,5,62,15);
+		this.metodoMagico(new JLabel("*Time(hh:mm)"),panel1,340,5,110,15);
+		this.metodoMagico(new JLabel("Lab No"),panel1,474,5,55,15);
+		this.metodoMagico(new JLabel("Age"),panel1,134,55,62,15);
+		this.metodoMagico(new JLabel("Mons"),panel1,189,55,62,15);
+		this.metodoMagico(new JLabel("Days"),panel1,254,55,62,15);
+		this.metodoMagico(new JLabel("Sample by"),panel1,323,55,62,15);
+		this.metodoMagico(new JLabel("Panel Code"),panel1,323,80,65,15);
+		this.metodoMagico(new JLabel("Panel ID"),panel1,323,105,62,15);
+		this.metodoMagico(new JLabel("e-mail"),panel1,323,130,62,15);
+		
+		calc1=new JButton(new ImageIcon("Icons/Calc.png"));
+		calc2=new JButton(new ImageIcon("Icons/Calc.png"));
+		calc3=new JButton(new ImageIcon("Icons/Calc.png"));
+		
+		this.metodoMagico(calc1,panel1,159,86,12,14);
+		this.metodoMagico(calc2,panel1,159,86,12,14);
+		this.metodoMagico(calc3,panel1,159,86,12,14);
+		
+		
+		
+		record.add(panel1);
 		
 		dp.add(record);
-		dp.setBounds(0, 0, 1080, 616);
+		dp.setBounds(0, 0, 1080, 680);
 		add(dp);
 		
 	}
 	
 	public void metodoMagico(Component c,JPanel p,int x, int y,int width, int height) {
-		c.setBounds(x, y, width, height);
 		p.add(c);
+		c.setBounds(x, y, width, height);
 	}
 	
 	
