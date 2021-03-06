@@ -6,6 +6,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import javax.xml.ws.spi.Invoker;
 
 class Ventana extends JFrame{
@@ -17,7 +19,7 @@ class Ventana extends JFrame{
 	
 	JToolBar tools;
 	JButton calc1,calc2,calc3;
-	JTextField patientId,hh,mm,labNo,name,age,mons,days,referredBy,blank,sampleBy,panelCode,panelId,email;
+	JTextField patientId,hh,mm,labNo,name,age,mons,days,referredBy,blank,sampleBy,panelCode,panelId,email,totalLess,lestAmt,concession,homeColection,taxAmt,netAmt,balance;
 	JComboBox cName,cSex,cDate;
 	
 	
@@ -172,12 +174,70 @@ class Ventana extends JFrame{
 		//panel1 end
 		
 		//panel2 start
+		JPanel panel2 = new JPanel();
+		panel2.setLayout(null);
+		panel2.setBackground(Color.WHITE);
+		panel2.setBounds(1, 236, 656, 271);
 		
 		
+			//tabla
+		String atribs[]={"Test ID", "Test Name","Rate","Disc %","Discount\nAmount","Tax(%)","Tax Amt"};
+		String values [][] = new String[1][7];
 		
+		DefaultTableModel mod = new DefaultTableModel();
+		mod=new DefaultTableModel(values,atribs);
+		JTable table=new JTable();
+		table=new JTable(mod);
+		JTableHeader header = table.getTableHeader();
+		metodoMagico(header,panel2,0,236,551,42);
+		metodoMagico(table,panel2,0,276,551,17);
+		record.add(header);
+		record.add(table);
 		
-		
+		record.add(panel2);
 		//panel2 end
+		
+		//panel3 start
+		JPanel panel3 = new JPanel();
+		panel3.setLayout(null);
+		panel3.setBounds(657, 237, 414, 271);
+		
+		metodoMagico(new JLabel("Total less"),panel3,30,20,100,15);
+		metodoMagico(new JLabel("Test Amt."),panel3,30,41,100,15);
+		metodoMagico(new JLabel("Concession"),panel3,30,62,100,15);
+		metodoMagico(new JLabel("Home Colection"),panel3,30,84,100,15);
+		metodoMagico(new JLabel("Tax Amt"),panel3,30,105,100,15);
+		metodoMagico(new JLabel("Net Amt"),panel3,30,126,100,15);
+		metodoMagico(new JLabel("Balance"),panel3,30,147,100,15);
+		
+		totalLess=new JTextField();
+		totalLess.setBackground(Color.BLUE);
+		metodoMagico(totalLess,panel3,135, 20, 66, 14);
+		lestAmt=new JTextField();
+		lestAmt.setBackground(Color.BLUE);
+		metodoMagico(lestAmt,panel3, 135, 41, 66, 14);
+		concession=new JTextField();
+		concession.setBackground(Color.BLUE);
+		metodoMagico(concession,panel3, 135, 62, 66, 14);
+		homeColection=new JTextField();
+		homeColection.setBackground(Color.BLUE);
+		metodoMagico(homeColection,panel3, 135, 84, 66, 14);
+		taxAmt=new JTextField();
+		taxAmt.setBackground(Color.BLUE);
+		metodoMagico(taxAmt,panel3, 135, 105, 66, 14);
+		netAmt=new JTextField();
+		netAmt.setBackground(Color.BLUE);
+		metodoMagico(netAmt,panel3, 135, 126, 66, 14);
+		balance=new JTextField();
+		balance.setBackground(Color.BLUE);
+		metodoMagico(balance,panel3, 135, 147, 66, 14);
+				
+		record.add(panel3);
+		//panel3 end
+			
+		
+		
+		
 		
 		
 		
@@ -186,8 +246,6 @@ class Ventana extends JFrame{
 		add(dp);
 		
 	}
-	
-	
 	
 	public void metodoMagico(Component c,JPanel p,int x, int y,int width, int height) {
 		p.add(c);
